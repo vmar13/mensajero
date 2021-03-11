@@ -3,7 +3,7 @@
 <h3> Messages </h3>
 <ul>
     <% @conversation.messages.each do |message| %>
-        <li><%= message.text %></li>
+        <li><%= link_to message.text, message_path(message) %></li>
     <% end %>
 </ul>
 
