@@ -1,2 +1,10 @@
-<h1>Conversations#show</h1>
-<p>Find me in app/views/conversations/show.html.erb</p>
+<h1><%= @conversation.title %></h1>
+<br>
+<h3> Messages </h3>
+<ul>
+    <% @conversation.messages.each do |message| %>
+        <li><%= message.text %></li>
+    <% end %>
+</ul>
+
+<%= button_to "All Conversations", conversations_path, method: :get %>

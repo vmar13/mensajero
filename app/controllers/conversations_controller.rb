@@ -1,24 +1,23 @@
 class ConversationsController < ApplicationController
   def index
-    conversations = Conversation.all
-    render :index
+    @conversations = Conversation.all
   end
 
   def show
-    conversation = Conversation.find(params[:id])
+    @conversation = Conversation.find(params[:id])
   end
 
   def new
-    conversation = Conversation.new 
+    @conversation = Conversation.new 
   end
 
   def create
-    conversation = Conversation.create!(conversation_params)
+    @conversation = Conversation.create!(conversation_params)
     redirect_to conversation_path(conversation)
   end
 
   def edit
-    conversation = Conversation.find(params[:id])
+    @conversation = Conversation.find(params[:id])
   end
 
   def update
