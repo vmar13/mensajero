@@ -1,7 +1,10 @@
 <h1>Message Show Page</h1>
 <br>
+<h3>Thoughts</h3>
 <ul>
    <% @message.thoughts.each do |thought| %>
-    <li></li>
+    <li><%= thought.text %></li>
    <% end %> 
 </ul>
+
+<%= button_to "All Messages", messages_path %>
