@@ -1,4 +1,4 @@
-class ConversationTitleUpcase < ApplicationService
+class ConversationTitleUpcase < Service
     attr_reader :title
 
     def initialize(title)

@@ -6,7 +6,6 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
-    @conversation_upcase = ConversationTitleUpcase.call(@conversation.title)
 
   end
 
@@ -16,7 +15,10 @@ class ConversationsController < ApplicationController
 
   def create
     @conversation = Conversation.create!(conversation_params)
-    redirect_to conversation_path(conversation)
+    @conversation.save
+    @conversation_upcase = ConversationTitleUpcase.call(@conversation.title)
+
+    redirect_to conversation_path(@conversation)
   end
 
   def edit

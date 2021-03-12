@@ -5,3 +5,6 @@
         <%= link_to convo.title, conversation_path(convo) %><br>
     <% end %>
 </ul>
+
+<%= button_to "Add a Conversation", {:controller => :conversations,
+    :action => 'new'}, :method => :get %>

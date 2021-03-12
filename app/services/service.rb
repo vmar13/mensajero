@@ -1,4 +1,4 @@
-class ApplicationService
+class Service
     def self.call(*args, &block)
         new(*args, &block).call
     end

@@ -1,2 +1,9 @@
-<h1>Conversations#new</h1>
-<p>Find me in app/views/conversations/new.html.erb</p>
+<h1>Create a Conversation</h1>
+<br>
+<%= form_for @conversation do |f| %>
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title %><br>
+    <%= f.text_field :start_date %>
+    <br>
+    <%= f.submit %>
+<% end %>
