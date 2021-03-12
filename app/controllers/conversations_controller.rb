@@ -38,7 +38,7 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation = Conversation.find(params[:id])
     @conversation.destroy
-    redirect_to conversations_path(conversations)
+    redirect_to conversations_path
   end
 
   private

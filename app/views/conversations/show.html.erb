@@ -7,4 +7,7 @@
     <% end %>
 </ul>
 
-<%= button_to "All Conversations", conversations_path, method: :get %>
+<%= button_to "All Conversations", conversations_path, method: :get %><br>
+
+<%= button_to "Delete Conversation", {:controller => :conversations, 
+    :action => 'destroy', :id => @conversation.id}, :method => :delete  %>
