@@ -13,6 +13,7 @@ class ConversationsController < ApplicationController
 
   def create
     @conversation = Conversation.create!(conversation_params)
+    @conversation_upcase = ConversationTitleUpcase.call(@conversation.title)
     redirect_to conversation_path(conversation)
   end
 

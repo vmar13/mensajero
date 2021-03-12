@@ -7,4 +7,5 @@
    <% end %> 
 </ul>
 
-<%= button_to "All Messages", messages_path %>
+<%# need to fix %>
+<%= button_to "Back to Messages", conversations_path(@message.id), method: :get %>
