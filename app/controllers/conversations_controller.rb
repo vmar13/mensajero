@@ -16,8 +16,8 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.create!(conversation_params)
     @conversation.save
-    @conversation_upcase = ConversationTitleUpcase.call(@conversation.title)
-
+    # @conversation_upcase = ConversationTitleUpcase.call(@conversation.title)
+    # Services::ConversationTitleUpcase.call(title: @conversation.title)
     redirect_to conversation_path(@conversation)
   end
 
@@ -26,11 +26,18 @@ class ConversationsController < ApplicationController
   end
 
   def update
+    @conversation = Conversation.find(params[:id])
+    if @conversation.update(conversation_params)
+      redirect_to conversation_path(@conversation)
+    else
+      flash[:errors] = @conversation.errors.full_messages
+      redirect_to edit_conversation_path
+    end
   end
 
   def destroy
-    conversation = Conversation.find(params[:id])
-    conversation.destroy
+    @conversation = Conversation.find(params[:id])
+    @conversation.destroy
     redirect_to conversations_path(conversations)
   end
 
